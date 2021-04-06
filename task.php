@@ -5,6 +5,14 @@ print("#####q1#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
   # 以下に回答を記載
+   <?php
+    $names = ["田中", "佐藤", "佐々木", "高橋", "斎藤"];
+    echo $names[0];
+    echo $names[1];
+    echo $names[2];
+    echo $names[3];
+    echo $names[4];
+  ?>
 
 echo PHP_EOL;
 
@@ -14,12 +22,31 @@ $array2 = ["bird", "bat", "tiger"];
 
   # 以下に回答を記載
 
+  <?php 
+  $array1 = ["dog", "cat", "fish"];
+  $array2 = ["bird", "bat", "tiger"];
+
+  print_r(array_merge($array1, $array2))
+  ?>
+
 echo PHP_EOL;
 
 print("#####q3#####".PHP_EOL);
 $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
 
   # 以下に回答を記載
+  <?php
+  $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
+  $count=0;
+  foreach($numbers as $number){
+    if($number==3){
+    $count++;
+    }
+  }
+
+  print_r($count . "回".PHP_EOL);
+  
+  ?>
 
 echo PHP_EOL;
 
@@ -27,6 +54,15 @@ print("#####q4#####".PHP_EOL);
 $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null, "バレー"];
 
   # 以下に回答を記載
+  <?php
+    $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null, "バレー"];
+    $unique = array_unique($sports);
+    
+    foreach($unique as $value){
+      echo $value.PHP_EOL;
+      
+    }
+  ?>
 
 echo PHP_EOL;
 
