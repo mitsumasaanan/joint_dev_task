@@ -68,6 +68,18 @@ $array1 = [];
 $array2 = [1, 5, 8, 10];
 
   # 以下に回答を記載
+  <?php 
+
+    $array = array();
+    $count = count($array);
+
+    if($count==0){
+      echo "true";
+    }else{
+      echo "false";
+    }
+
+  ?>
 
 echo PHP_EOL;
 
@@ -75,6 +87,19 @@ print("#####q6#####".PHP_EOL);
 $numbers1 = [1, 2, 3, 4, 5];
 
   # 以下に回答を記載
+  <?php 
+
+  $numbers1 = [1, 2, 3, 4, 5];
+  $numbers2 = [];
+  
+  foreach($numbers1 as $number1){
+    $number1 *= 10;
+    array_push($numbers2,$number1);
+  }
+  
+  print_r($numbers2);
+
+  ?>
 
 echo PHP_EOL;
 
@@ -82,6 +107,13 @@ print("#####q7#####".PHP_EOL);
 $array = ["1", "2", "3", "4", "5"];
 
   # 以下に回答を記載
+  <?php 
+  $array = ["1", "2", "3", "4", "5"];
+
+  $array = array_map('intval',$array);
+  var_dump($array);
+
+  ?>
 
   # 以下は変更しないで下さい
 var_dump($array);
@@ -92,6 +124,17 @@ print("#####q8#####".PHP_EOL);
 $programming_languages = ["php","ruby","python","javascript"];
 
   # 以下に回答を記載
+  <?php 
+
+    $programming_languages = ["php","ruby","python","javascript"];
+    
+    $programming_languages = array_map('ucfirst',$programming_languages);
+    print_r($programming_languages);
+
+    $upper_case_programming_languages = array_map('strtoupper',$programming_languages);
+    print_r($upper_case_programming_languages);
+
+  ?>
 
   # 以下は変更しないで下さい
 print_r($programming_languages);
@@ -104,13 +147,35 @@ print("#####q9#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
   # 以下に回答を記載
+  <?php 
+  $names = ["田中", "佐藤", "佐々木", "高橋"];
+
+    $i=1;
+    foreach($names as $name){
+      echo "会員No.".$i.$name.PHP_EOL;
+      $i++;
+    }
+  ?>
+
 
 echo PHP_EOL;
 
 print("#####q10#####".PHP_EOL);
-$foods = ["いか","たこ","うに","しゃけ","うにぎり","うに軍艦","うに丼","高級なうに"]];
+
 
   # 以下に回答を記載
+  <?php 
+    $foods = ["いか","たこ","うに","しゃけ","うにぎり","うに軍艦","うに丼","高級なうに"];
+
+    foreach($foods as $food){
+      if(strpos($food,"うに") !== false){
+        echo "好物です".PHP_EOL;
+      }else{
+        echo "まぁまぁ好きです".PHP_EOL;
+      }
+    }
+  
+  ?>
 
 echo PHP_EOL;
 
