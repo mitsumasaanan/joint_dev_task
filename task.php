@@ -6,12 +6,10 @@ $names = ["田中", "佐藤", "佐々木", "高橋"];
 
   # 以下に回答を記載
    <?php
-    $names = ["田中", "佐藤", "佐々木", "高橋", "斎藤"];
-    echo $names[0];
-    echo $names[1];
-    echo $names[2];
-    echo $names[3];
-    echo $names[4];
+    $names = ["田中", "佐藤", "佐々木", "高橋"];
+    
+    array_push($names, "斎藤");
+    print_r($names);
   ?>
 
 echo PHP_EOL;
@@ -56,12 +54,11 @@ $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null,
   # 以下に回答を記載
   <?php
     $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null, "バレー"];
-    $unique = array_unique($sports);
     
-    foreach($unique as $value){
-      echo $value.PHP_EOL;
+    $sports = array_diff($sports,[null]);
+    print_r($sports);
       
-    }
+    
   ?>
 
 echo PHP_EOL;
