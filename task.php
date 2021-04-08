@@ -110,12 +110,14 @@ print("#####q9#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
   # 以下に回答を記載
+  $names2 = [];
 
-    $i=1;
-    foreach($names as $name){
-      echo "会員No.".$i.$name.PHP_EOL;
-      $i++;
-    }
+  foreach($names as $key => $name){
+    $number = $key+1;
+    $name2 = "会員No.".$number." ".$name;
+    array_push($names2,$name2);
+  }
+  print_r($names2);
 
 
 echo PHP_EOL;
@@ -195,14 +197,16 @@ $data1 = [ "name" => "saitou", "hobby" => "soccer", "age" => 33, "role" => "admi
 $data2 = [ "name" => "yamada", "hobby" => "baseball", "role" => "normal" ];
 
   # 以下に回答を記載
-  $key1 = array_keys($data1);
+  if(array_key_exists('age',$data1)){
+    echo "OK".PHP_EOL;
+  }else{
+    echo "NG".PHP_EOL;
+  }
 
-  foreach($key1 as $data){
-    if(strpos($data,"age") !== false){
-      echo "OK".PHP_EOL;
-    }else{
-      echo "NG".PHP_EOL;
-    }
+  if(array_key_exists('age',$data2)){
+    echo "OK".PHP_EOL;
+  }else{
+    echo "NG".PHP_EOL;
   }
 
 echo PHP_EOL;
@@ -223,13 +227,26 @@ $users = [
   //print_r($users["name"]["age"]);
 
 echo PHP_EOL;
-?>
+
 
 print("#####q17#####".PHP_EOL);
 class User
 {
+  private $name;
+  private $age;
+  private $sex;
 
-  # コードを追加
+  public function __construct($name,$age,$sex){
+    $this->name = $name;
+    $this->age = $age;
+    $this->sex = $sex;
+  }
+
+  public function info(){
+    echo "名前：".$this->name.PHP_EOL;
+    echo "年齢：".$this->age.PHP_EOL;
+    echo "性別：".$this->sex.PHP_EOL;
+  }
 
 }
 
@@ -245,6 +262,24 @@ echo PHP_EOL;
 print("#####q18#####".PHP_EOL);
 
   # コードを追加
+  class Man{
+    private $name;
+    private $age;
+
+    public function __construct($name,$age){
+      $this->name = $name;
+      $this->age = $age;
+    }
+
+    public function introduce(){
+      if($this->age>30){
+        echo "こんにちは，".$this->name."と申します。宜しくお願いいたします。".PHP_EOL;
+      }else{
+        echo "はいさいまいど〜，".$this->name."です！！！".PHP_EOL;
+      }
+    }
+    
+  }
 
 $man1 = new Man("あじー",32);
 $man2 = new Man("ゆたぼん",10);
@@ -258,11 +293,12 @@ print("#####q19#####".PHP_EOL);
 class Item{
   # 以下を修正して下さい
 
-  protected $name;
+  public $name;
 
-  function __construct($book_name){
-    $this->name = $book_name;
+  public function __construct($name){
+    $this->name = $name;
   }
+  
 }
   # 以下は変更しないで下さい
 
@@ -275,14 +311,29 @@ print("#####q20#####".PHP_EOL);
 class Human
 {
 
-  # コードを追加
+  private $name;
+  private $age;
+
+  public function __construct($name,$age){
+    $this->name = $name;
+    $this->age = $age;
+  }
 
 }
 
 class Zoo
 {
+  private $zoo_name;
+  private $fee;
+
+  public function __construct($zoo_name,$fee){
+    $this->zoo_name = $zoo_name;
+  }
 
   # コードを追加
+  public function info_entry_fee(){
+    echo "の入場料金は"."円です。";
+  }
 
 }
 
