@@ -308,11 +308,12 @@ print($book->name.PHP_EOL);
 echo PHP_EOL;
 
 print("#####q20#####".PHP_EOL);
+
 class Human
 {
 
-  private $name;
-  private $age;
+  public $name;
+  public $age;
 
   public function __construct($name,$age){
     $this->name = $name;
@@ -323,16 +324,26 @@ class Human
 
 class Zoo
 {
-  private $zoo_name;
-  private $fee;
+  protected $zoo_name;
+  protected $fee;
 
   public function __construct($zoo_name,$fee){
     $this->zoo_name = $zoo_name;
+    $this->fee = $fee;
   }
 
   # コードを追加
-  public function info_entry_fee(){
-    echo "の入場料金は"."円です。";
+
+  function info_entry_fee(Human $human){
+      if($human->age <= 5){
+        echo $human->name."さんの入場料金は ".$this->fee["infant"]." 円です。".PHP_EOL;
+      }elseif($human->age <= 19){
+        echo $human->name."さんの入場料金は ".$this->fee["children"]." 円です。".PHP_EOL;
+      }elseif($human->age <= 59){
+        echo $human->name."さんの入場料金は ".$this->fee["adult"]." 円です。".PHP_EOL;
+      }else{
+        echo $human->name."さんの入場料金は ".$this->fee["senior"]." 円です。".PHP_EOL;
+      }
   }
 
 }
