@@ -315,9 +315,9 @@ class Human
   public $name;
   public $age;
 
-  public function __construct($name,$age){
-    $this->name = $name;
-    $this->age = $age;
+  public function __construct($guest_name,$guest_age){
+    $this->name = $guest_name;
+    $this->age = $guest_age;
   }
 
 }
@@ -327,22 +327,22 @@ class Zoo
   protected $zoo_name;
   protected $fee;
 
-  public function __construct($zoo_name,$fee){
+  public function __construct($zoo_name,$zoo_entry_fee){
     $this->zoo_name = $zoo_name;
-    $this->fee = $fee;
+    $this->entry_fee = $zoo_entry_fee;
   }
 
   # コードを追加
 
   function info_entry_fee(Human $human){
       if($human->age <= 5){
-        echo $human->name."さんの入場料金は ".$this->fee["infant"]." 円です。".PHP_EOL;
-      }elseif($human->age <= 19){
-        echo $human->name."さんの入場料金は ".$this->fee["children"]." 円です。".PHP_EOL;
-      }elseif($human->age <= 59){
-        echo $human->name."さんの入場料金は ".$this->fee["adult"]." 円です。".PHP_EOL;
-      }else{
-        echo $human->name."さんの入場料金は ".$this->fee["senior"]." 円です。".PHP_EOL;
+        echo $human->name."さんの入場料金は ".$this->entry_fee["infant"]." 円です。".PHP_EOL;
+      }elseif($human->age <= 12){
+        echo $human->name."さんの入場料金は ".$this->entry_fee["children"]." 円です。".PHP_EOL;
+      }elseif($human->age <= 64){
+        echo $human->name."さんの入場料金は ".$this->entry_fee["adult"]." 円です。".PHP_EOL;
+      }elseif($human->age <= 120){
+        echo $human->name."さんの入場料金は ".$this->entry_fee["senior"]." 円です。".PHP_EOL;
       }
   }
 
@@ -366,7 +366,11 @@ echo PHP_EOL;
 print("#####q21#####".PHP_EOL);
 
 for($i=1;$i<=30;$i++){
-  if($i%3==0 && $i%5==0){
+  if($i%3==0 && $i%5==0 && $i%7==0){
+    echo "FizzBuzzHoge".PHP_EOL;
+  }elseif($i%5==0 && $i%7==0){
+    echo "BuzzHoge".PHP_EOL;
+  }elseif($i%3==0 && $i%5==0){
     echo "FizzBuzz".PHP_EOL;
   }elseif($i%3==0 && $i%7==0){
     echo "FizzHoge".PHP_EOL;
@@ -379,6 +383,9 @@ for($i=1;$i<=30;$i++){
   }else{
     echo $i.PHP_EOL;
   }
+  
+  
 }
+  
 
 
